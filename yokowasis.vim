@@ -172,8 +172,9 @@ let g:lightline = {
 
 
 syntax enable
-colorscheme monokai
 
 let g:NERDTreeWinPos = "left"
 silent !stty -ixon
 autocmd VimLeave * silent !stty ixon
+
+colorscheme monokai
