@@ -4,3 +4,7 @@ wget https://raw.githubusercontent.com/yokowasis/vim/master/yokowasis.vim
 
 cp -f yokowasis.vim ~/.vim_runtime/my_configs.vim
 rm -f yokowasis.vim
+
+wget https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim
+cp -f monokai.vim ~/.vim/colors/
+rm -f monokai.vim
