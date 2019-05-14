@@ -61,7 +61,7 @@ noremap <C-Q>           <C-V>
 " using completions).
 noremap <C-S>           :update<CR>
 vnoremap <C-S>          <C-C>:update<CR>
-inoremap <C-S>          <Esc>:update<CR>gi
+inoremap <C-S>          <Esc>:update<CR>i
 
 " For CTRL-V to work autoselect must be off.
 " On Unix we have two selections, autoselect can be used.
@@ -132,8 +132,8 @@ smap <c-d> <c-g><c-d>
 
 nnoremap <c-v> gpi
 nnoremap <c-s> :update<CR>i
-nmap <leader>s :Gstatus<CR><C-W><S-J><C-W><C-W><C-W><C-W><C-W><S-L>:vertical resize 130<CR>
-
+nmap <c-m> <Esc><Esc>:Gstatus<CR><C-W><S-J><C-W><C-W><C-W><C-W><C-W><S-L>:vertical resize 130<CR>i
+imap <c-m> <Esc><Esc>:Gstatus<CR><C-W><S-J><C-W><C-W><C-W><C-W><C-W><S-L>:vertical resize 130<CR>i
 
 inoremap <c-v> <c-o>gp
 
@@ -167,7 +167,7 @@ let g:lightline = {
       \              [ 'fileformat' ] ]
       \ },
       \ 'component': {
-      \   'manual': ':\s/search/replace/g',
+      \   'manual': '/:find | ^m:GStatus',
       \ },
       \ }
 
@@ -179,3 +179,5 @@ silent !stty -ixon
 autocmd VimLeave * silent !stty ixon
 
 colorscheme monokai
+
+startinsert
