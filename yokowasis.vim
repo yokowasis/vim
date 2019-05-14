@@ -132,6 +132,7 @@ smap <c-d> <c-g><c-d>
 
 nnoremap <c-v> gpi
 nnoremap <c-s> :update<CR>i
+nmap <leader>s :Gstatus<CR><C-W><S-J><C-W><C-W><C-W><C-W><C-W><S-L>:vertical resize 130<CR>
 
 
 inoremap <c-v> <c-o>gp
