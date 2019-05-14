@@ -132,9 +132,8 @@ smap <c-d> <c-g><c-d>
 
 nnoremap <c-v> gpi
 nnoremap <c-s> :update<CR>i
-nmap <c-m> <Esc><Esc>:Gstatus<CR><C-W><S-J><C-W><C-W><C-W><C-W><C-W><S-L>:vertical resize 130<CR>i
-imap <c-m> <Esc><Esc>:Gstatus<CR><C-W><S-J><C-W><C-W><C-W><C-W><C-W><S-L>:vertical resize 130<CR>i
-
+noremap <c-l> <Esc><Esc>:Gstatus<CR><C-W><S-J><C-W><C-W><C-W><C-W><C-W><S-L>:vertical resize 130<CR>i
+noremap <c-h> :call ReplaceIt()<CR>
 inoremap <c-v> <c-o>gp
 
 let g:multi_cursor_start_word_key      = '<C-d>'
@@ -167,7 +166,7 @@ let g:lightline = {
       \              [ 'fileformat' ] ]
       \ },
       \ 'component': {
-      \   'manual': '/:find | ^m:GStatus',
+      \   'manual': '/:find | ^l:GStatus | ^h:Find&Replace',
       \ },
       \ }
 
@@ -180,4 +179,11 @@ autocmd VimLeave * silent !stty ixon
 
 colorscheme monokai
 
-startinsert
+function! ReplaceIt()
+    call inputsave()
+    let find = input('Find :')
+    let replace = input('Replace :')
+    call inputrestore()
+    execute "%s/".find."/".replace."/g"
+endfunction
+
